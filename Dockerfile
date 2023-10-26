@@ -9,6 +9,7 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
 COPY ["Actions/Actions.csproj", "."]
 COPY ["ActionsTests/ActionsTests.csproj", "."]
+COPY ["ActionsTests/ActionsTests.csproj", "."]
 RUN dotnet restore "./Actions.csproj"
 RUN dotnet restore "./ActionsTests.csproj"
 COPY . .
