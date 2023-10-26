@@ -11,6 +11,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Build the Docker image
+      working-directory: Actions
       run: docker build . -t eugatrol/actions-test:latest
 
     - name: Log into Docker Hub
