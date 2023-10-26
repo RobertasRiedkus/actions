@@ -12,7 +12,7 @@ jobs:
     
     - name: Build the Docker image
       working-directory: Dockerized/Hello
-      run: docker build . -t docker-hub-username/container-name:latest
+      run: docker build . -t eugatrol/actions-test:latest
 
     - name: Log into Docker Hub
       uses: docker/login-action@v2
@@ -21,7 +21,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Push the image to Docker Hub
-      run: docker push docker-hub-username/container-name
+      run: docker push eugatrol/actions-test
 
     - name: Pull the image to VM
       uses: appleboy/ssh-action@v1.0.0
