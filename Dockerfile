@@ -13,7 +13,7 @@ COPY ["ActionsTests/ActionsTests.csproj", "."]
 COPY . .
 WORKDIR "/src/."
 RUN dotnet build "Actions.csproj" -c Release -o /app/build
-
+RUN dotnet restore "Actions.csproj"
 FROM build AS publish
 RUN dotnet publish "Actions.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
