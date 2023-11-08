@@ -14,7 +14,7 @@ RUN dotnet restore
 RUN dotnet build -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Actions.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Actions/Actions.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
