@@ -1,23 +1,19 @@
-name: Backend Deployment
+name: Dockerhub image
 
 on:
   push:
     branches: [ "main" ]
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    
     - name: Build the Docker image
       run: docker build . -t eugatrol/actions-test:latest
-
     - name: Log into Docker Hub
       uses: docker/login-action@v2
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-
     - name: Push the image to Docker Hub
       run: docker push eugatrol/actions-test
